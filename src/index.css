@@ -71,4 +71,46 @@ body {
     .avatar-container {
         @apply border-2 border-transparent transition ease-in-out hover:border-custom-orange rounded-full cursor-pointer;
     }
+
+    .product-section {
+        @apply w-full h-full flex flex-col lg:flex-row;
+    }
+
+    .product-details {
+        @apply w-full flex flex-col gap-2 p-6;
+
+        .product-info {
+
+            @apply flex flex-col gap-4;
+
+            .product-title {
+                @apply text-2xl font-bold text-dark-blue;
+            }
+    
+            .product-description {
+                @apply text-sm text-dark-grayish-blue tracking-wider;
+            }
+
+            .product-price {
+                @apply w-full flex items-center justify-between;
+            }
+        }
+
+    }
+
+    .add-to-cart-counter {
+        @apply w-full bg-light-grayish-blue justify-between rounded-lg py-3 px-5 mt-4;
+
+        .counter-action-btn {
+            @apply cursor-pointer disabled:opacity-50 disabled:cursor-default;
+        }
+
+        .counter-action-img {
+            @apply w-3 h-1;
+        }
+    }
+
+    .add-to-cart-btn {
+        @apply w-full p-4 rounded-lg bg-custom-orange justify-center gap-2 mt-2 cursor-pointer hover:shadow-lg shadow-pale-orange disabled:opacity-50 disabled:cursor-default;
+    }
 }
