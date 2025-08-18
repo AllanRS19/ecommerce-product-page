@@ -34,7 +34,7 @@ const ProductDetails = () => {
                 </div>
             </div>
             <AddToCart
-                productName={productInfo.title}
+                productInfo={productInfo}
             />
         </div>
     )

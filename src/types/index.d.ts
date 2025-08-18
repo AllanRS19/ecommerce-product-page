@@ -32,5 +32,5 @@ interface ProductAmountCounterProps {
 }
 
 interface AddToCartProps {
-    productName: string;
+    productInfo: ProductDetailsProps;
 }

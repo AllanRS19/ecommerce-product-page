@@ -1,7 +1,7 @@
 import { useState, type SetStateAction } from "react";
 import { navLinks } from "../constants";
 import { cn } from "../lib/utils";
-import CartDropdown from "./CartDropdown";
+import CartDropdown from "./Cart";
 
 interface NavbarProps {
     setMobileNavOpen: (prev: SetStateAction<boolean>) => void;

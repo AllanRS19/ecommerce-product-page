@@ -105,7 +105,7 @@ body {
                     }
 
                     .checkout-button {
-                        @apply w-full p-4 text-sm font-bold rounded-lg cursor-pointer hover:opacity-50 transition bg-custom-orange;
+                        @apply w-full p-4 text-sm font-bold rounded-lg cursor-pointer disabled:opacity-50 disabled:cursor-default hover:opacity-50 transition bg-custom-orange;
                     }
 
                 }

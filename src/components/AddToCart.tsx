@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
+import { useCartStore } from "../store/cart.store";
 import { cn } from "../lib/utils";
+import { productImages } from "../constants";
+import toast from "react-hot-toast";
 
 const ProductAmountCounter = ({ counter, setCounter, isAddingToCart }: ProductAmountCounterProps) => (
     <div className="flex-center add-to-cart-counter">
@@ -22,22 +25,54 @@ const ProductAmountCounter = ({ counter, setCounter, isAddingToCart }: ProductAm
     </div>
 )
 
-const AddToCart = ({ productName }: AddToCartProps) => {
+const AddToCart = ({ productInfo }: AddToCartProps) => {
+
+    const { title, price, discountPercent = 0 } = productInfo;
 
     const [counter, setCounter] = useState(0);
     const [isAddingToCart, setIsAddingToCart] = useState(false);
 
-    const handleAddItemToCart = () => {
-        if (counter <= 0) return console.log("Number is negative or equal to 0");
+    const { addItemToCart } = useCartStore();
 
-        console.log("We are processing");
-        setIsAddingToCart(true);
+    const handleAddItemToCart = async () => {
 
-        setTimeout(() => {
-            setIsAddingToCart(false);
+        if (counter <= 0) return console.log("Please select a quantity to continue");
+
+        const customId = crypto.randomUUID();
+
+        try {
+            setIsAddingToCart(true);
+
+            const finalPrice = discountPercent > 0 ? price * discountPercent : price;
+    
+            const cartItem = {
+                cartItemId: customId,
+                productTitle: title,
+                quantity: counter,
+                finalPrice,
+                imageUrl: productImages[0].imageUrl
+            }
+    
+            await new Promise((resolve) => setTimeout(resolve, 3000));
+            addItemToCart(cartItem);
+
+            toast.success(`The product "${title}" has been added to your cart`, {
+                style: {
+                    fontSize: "14px"
+                }
+            });
+
+        } catch {
+            toast.error("There was an error adding the item to your cart", {
+                style: {
+                    fontSize: "14px"
+                }
+            });
+        } finally {
             setCounter(0);
-            console.log("Items added successfully", productName);
-        }, 5000);
+            setIsAddingToCart(false);
+        }
+        
     }
 
     return (
