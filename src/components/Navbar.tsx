@@ -1,6 +1,7 @@
 import { useState, type SetStateAction } from "react";
 import { navLinks } from "../constants";
 import { cn } from "../lib/utils";
+import CartDropdown from "./CartDropdown";
 
 interface NavbarProps {
     setMobileNavOpen: (prev: SetStateAction<boolean>) => void;
@@ -32,9 +33,7 @@ const Navbar = ({ setMobileNavOpen }: NavbarProps) => {
                     </ul>
                 </div>
                 <div className="flex-center gap-6 lg:gap-8">
-                    <div className="cart-dropdown-container">
-                        <img src="/images/icon-cart.svg" alt="Shopping Cart" className="cursor-pointer size-5 lg:size-4" />
-                    </div>
+                    <CartDropdown />
                     <div className="avatar-container">
                         <img src="/images/image-avatar.png" alt="Avatar" className="size-6 lg:size-10 rounded-full object-cover" />
                     </div>

@@ -23,18 +23,22 @@ export const navLinks = [
 
 export const productImages = [
     {
+        imageId: '1',
         imageUrl: "/images/image-product-1.jpg",
         imageThumbnailUrl: "/images/image-product-1-thumbnail.jpg"
     },
     {
+        imageId: '2',
         imageUrl: "/images/image-product-2.jpg",
         imageThumbnailUrl: "/images/image-product-2-thumbnail.jpg"
     },
     {
+        imageId: '3',
         imageUrl: "/images/image-product-3.jpg",
         imageThumbnailUrl: "/images/image-product-3-thumbnail.jpg"
     },
     {
+        imageId: '4',
         imageUrl: "/images/image-product-4.jpg",
         imageThumbnailUrl: "/images/image-product-4-thumbnail.jpg"
     }

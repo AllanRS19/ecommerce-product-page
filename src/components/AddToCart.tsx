@@ -1,15 +1,6 @@
-import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
-
-interface ProductAmountCounterProps {
-    counter: number;
-    setCounter: (count: number) => void;
-    isAddingToCart: boolean;
-}
-
-interface AddToCartProps {
-    productName: string;
-}
+import { ShoppingCart } from "lucide-react";
+import { cn } from "../lib/utils";
 
 const ProductAmountCounter = ({ counter, setCounter, isAddingToCart }: ProductAmountCounterProps) => (
     <div className="flex-center add-to-cart-counter">
@@ -50,23 +41,32 @@ const AddToCart = ({ productName }: AddToCartProps) => {
     }
 
     return (
-        <>
+        <div className="w-full flex flex-col gap-4 mt-6 lg:flex-row">
             <ProductAmountCounter
                 counter={counter}
                 setCounter={setCounter}
                 isAddingToCart={isAddingToCart}
             />
-            <button 
+            <button
                 onClick={handleAddItemToCart}
                 className="flex-center add-to-cart-btn"
-                disabled={isAddingToCart}
+                disabled={isAddingToCart || counter <= 0}
             >
-                <ShoppingCart className="size-4.5" />
+                <ShoppingCart className={cn(
+                    "size-4.5",
+                    counter <= 0 && "hidden",
+                    isAddingToCart && "animate-pulse"
+                )} />
                 <p className="text-sm font-bold">
-                    {isAddingToCart ? "Adding to your cart..." : "Add to cart"}
+                    {
+                        isAddingToCart
+                            ? "Adding to your cart..."
+                            : "Add to cart"
+
+                    }
                 </p>
             </button>
-        </>
+        </div>
     )
 }
 
