@@ -35,6 +35,7 @@ Users should be able to:
 ![](/public/screenshots/desktop-screenshot-4.png)
 ![](/public/screenshots/desktop-screenshot-5.png)
 ![](/public/screenshots/desktop-screenshot-6.png)
+![](/public/screenshots/desktop-screenshot-7.png)
 
 #### Mobile
 ![](/public/screenshots/mobile-screenshot-1.png)
@@ -47,7 +48,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/AllanRS19/ecommerce-product-page](https://github.com/AllanRS19/ecommerce-product-page)
-- Live Site URL: [https://mortgage-repayment-calculator-silk.vercel.app/](https://mortgage-repayment-calculator-silk.vercel.app/)
+- Live Site URL: [https://ecommerce-product-page-six-lime.vercel.app/](https://ecommerce-product-page-six-lime.vercel.app/)
 
 ## My process
 

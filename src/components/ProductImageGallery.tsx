@@ -45,6 +45,22 @@ const MobileProductImageGallery = () => {
     const images: Images[] = productImages;
     const [currentImage, setCurrentImage] = useState<string>(images[0].imageId);
 
+    // In case you want to implement the automatic slider, you can uncomment the code below
+
+    // setInterval(() => {
+    //     const findCurrentImageIndex = images.findIndex((image) => image.imageId === currentImage);
+    //     if (findCurrentImageIndex < 0) return;
+
+    //     if (findCurrentImageIndex === images.length - 1) {
+    //         console.log("Es la última");
+    //         return setCurrentImage(images[0].imageId);
+    //     }
+    //     else if (findCurrentImageIndex === 0 || findCurrentImageIndex < images.length) {
+    //         console.log("Es la primera o no es la ultima");
+    //         return setCurrentImage(images[findCurrentImageIndex + 1].imageId);
+    //     }
+    // }, 5000);
+
     return (
         <section className="mobile-product-gallery">
             <MobileGalleryToggler action="backward" images={images} currentImage={currentImage} setCurrentImage={setCurrentImage} />
@@ -77,10 +93,10 @@ const DesktopProductImageGallery = () => {
     return (
         <div className="hidden w-full lg:block lg:flex-1">
             <ProductLightbox
-                    isMainImageSelected={isMainImageSelected} 
-                    setIsMainImageSelected={setIsMainImageSelected}
-                    productImages={productImages}
-                    currentImage={currentImage}
+                isMainImageSelected={isMainImageSelected}
+                setIsMainImageSelected={setIsMainImageSelected}
+                productImages={productImages}
+                currentImage={currentImage}
             />
             <div className="desktop-gallery-wrapper">
                 <div
