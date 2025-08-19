@@ -5,7 +5,7 @@ import { formatPrice } from "../lib/utils";
 const ProductDetails = () => {
 
     const productInfo: ProductDetailsProps = productDetails;
-    
+
     return (
         <div className="product-details-wrapper">
             <h3 className="uppercase text-xs font-bold tracking-widest text-dark-grayish-blue">Sneaker Company</h3>
@@ -16,17 +16,17 @@ const ProductDetails = () => {
                     <div className="flex-center gap-3">
                         <p className="text-xl lg:text-2xl text-black/85 font-bold">
                             {productInfo.discountPercent
-                                ? formatPrice(productInfo.price - (productInfo.price * productInfo.discountPercent))
+                                ? formatPrice((productInfo.price - (productInfo.price * productInfo.discountPercent)))
                                 : formatPrice(productInfo.price)
                             }
                         </p>
-                        {productDetails.discountPercent && productDetails.discountPercent > 0 && (
+                        {productDetails.discountPercent !== null && productDetails.discountPercent > 0 && (
                             <p className="text-xs text-center font-bold text-white size-fit py-[3px] px-2 rounded-sm bg-black/85">
-                                {(productDetails.discountPercent * 100).toFixed(0)}%
+                                {(productDetails.discountPercent * 100)}%
                             </p>
                         )}
                     </div>
-                    {productInfo.discountPercent && (
+                    {productInfo.discountPercent !== null && productInfo.discountPercent !== 0 && (
                         <p className="text-sm font-bold text-dark-grayish-blue line-through">
                             {formatPrice(productInfo.price)}
                         </p>
