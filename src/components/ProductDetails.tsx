@@ -16,13 +16,13 @@ const ProductDetails = () => {
                     <div className="flex-center gap-3">
                         <p className="text-xl lg:text-2xl text-black/85 font-bold">
                             {productInfo.discountPercent
-                                ? formatPrice(productInfo.price * productInfo.discountPercent)
+                                ? formatPrice(productInfo.price - (productInfo.price * productInfo.discountPercent))
                                 : formatPrice(productInfo.price)
                             }
                         </p>
                         {productDetails.discountPercent && productDetails.discountPercent > 0 && (
                             <p className="text-xs text-center font-bold text-white size-fit py-[3px] px-2 rounded-sm bg-black/85">
-                                {productDetails.discountPercent * 100}%
+                                {(productDetails.discountPercent * 100).toFixed(0)}%
                             </p>
                         )}
                     </div>
